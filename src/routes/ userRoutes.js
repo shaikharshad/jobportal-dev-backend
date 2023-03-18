@@ -1,9 +1,2 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-
-const app = express();
-const port = 4200;
-
-const  defaultport = '/'
-
+const  defaultport = '/getAll'
 module.exports = defaultport;

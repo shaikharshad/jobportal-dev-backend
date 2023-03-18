@@ -8,8 +8,20 @@ const port = 4200;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+
+// const { MongoClient, ServerApiVersion } = require('mongodb');
+// const uri = "mongodb+srv://arshad:arshad@cluster0.gfiw0ul.mongodb.net/?retryWrites=true&w=majority";
+// const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+// client.connect(err => {
+//   const collection = client.db("test").collection("devices");
+//   // perform actions on the collection object
+//   client.close();
+// });
+
+
 app.get(dP, (req, res) => {
-  res.send('Hello World first a!');
+    const users = [{ id: 1, name: 'John' }, { id: 2, name: 'Jane' }];
+    res.json(users);
 });
 
 app.post('/api/users', (req, res) => {
