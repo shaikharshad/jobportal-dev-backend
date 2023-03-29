@@ -1,24 +1,24 @@
 const mongoose = require("mongoose");
 
-const  defaultport = '/getAll'
-
-module.exports = defaultport;
 const express =require('express')
 const router =express.Router()
 const adminRegister= require('../models/userModel')
 
-router.post("/",(req,res,next)=> {
-     const csk = new  adminRegister({
-        _id: new mongoose.Types.ObjectId,
+router.post("/",(req,res)=> {
+     const adminSignup = new  adminRegister( {
+        id:1,
         username: req.body.username,
         email: req.body.email,
+        mobileNumber: req.body.mobileNumber,
+        password : req.body.password,
     })
-    csk.save()
+    adminSignup.save()
     .then(result=> {
         console.log(result);
-        res.status(200).json({
-            newCSk :result,
-        })
+        var data  = result
+        res.status(200)
+        res.json({data}
+        )
     })
     .catch((err)=> {
         console.log(err);
